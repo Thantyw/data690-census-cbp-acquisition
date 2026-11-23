@@ -13,7 +13,7 @@ import re
 import sys
 import tempfile
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 from urllib.request import HTTPRedirectHandler, build_opener
 from uuid import uuid4
 
@@ -69,6 +69,12 @@ def request_json(endpoint, params=None, key=None):
                 return []
             return json.load(response)
     except HTTPError as exc:
+        if exc.code == 302:
+            path = urlsplit(exc.headers.get("Location", "")).path
+            if path == "/data/invalid_key.html":
+                raise AcquisitionError("Census rejected the key. Check registration and paste only the API key.") from None
+            if path == "/data/missing_key.html":
+                raise AcquisitionError("Census did not receive a usable API key.") from None
         raise AcquisitionError(f"Census returned HTTP {exc.code}.") from None
     except (URLError, OSError):
         raise AcquisitionError("Census connection failed or timed out.") from None
@@ -176,12 +182,21 @@ def decode_table(body):
     if not isinstance(body, list) or not body or not isinstance(body[0], list):
         raise AcquisitionError("Expected a Census JSON table.")
     header = body[0]
-    if any(not isinstance(field, str) or not field for field in header) or len(set(header)) != len(header):
-        raise AcquisitionError("Response has invalid or duplicate field names.")
-    if any(not isinstance(row, list) or len(row) != len(header) or
-           any(value is not None and type(value) not in (str, int) for value in row) for row in body[1:]):
-        raise AcquisitionError("Response contains malformed rows or non-scalar cells.")
-    return header, [dict(zip(header, row)) for row in body[1:]]
+    if not header or any(not isinstance(field, str) or not field.strip() for field in header):
+        raise AcquisitionError("Response contains an empty or invalid field name.")
+    rows = []
+    for row in body[1:]:
+        if (not isinstance(row, list) or len(row) != len(header)
+                or any(value is not None and type(value) not in (str, int) for value in row)):
+            raise AcquisitionError("Response contains malformed rows or non-scalar cells.")
+        record = {}
+        for field, value in zip(header, row):
+            # Census can repeat requested dimensions when it echoes predicates.
+            if field in record and record[field] != value:
+                raise AcquisitionError(f"Repeated Census column has conflicting values: {field}.")
+            record[field] = value
+        rows.append(record)
+    return list(dict.fromkeys(header)), rows
 
 
 def interpret(value, flag):
