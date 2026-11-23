@@ -1,0 +1,27 @@
+name: Run Census CBP Acquisition
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve and validate CBP data
+        env:
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+        run: python data_acquisition/fetch_cbp.py --year 2022 2023
+      - name: Upload candidate CSVs and validation reports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cbp-candidate-outputs
+          path: data/candidate/
+          if-no-files-found: error
