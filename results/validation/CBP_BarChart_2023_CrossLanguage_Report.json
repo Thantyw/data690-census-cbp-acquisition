@@ -1,0 +1,99 @@
+{
+  "project": "DATA 690 Census Bureau Capstone",
+  "example": "CBP 2023 Employment Bar Chart",
+  "dataset": "County Business Patterns (CBP)",
+  "year": 2023,
+  "scope": {
+    "NAICS2017": "00",
+    "industry_label": "Total for all sectors",
+    "LFO": "001",
+    "EMPSZES": "001",
+    "state_fips": [
+      "10",
+      "11",
+      "24",
+      "42",
+      "51"
+    ]
+  },
+  "validation_method": "Analytical equivalence; no pixel-level image comparison",
+  "python_execution": "PASS",
+  "r_execution": "PASS",
+  "overall_status": "PASS",
+  "generated_utc": "2026-11-26T17:08:47.077380+00:00",
+  "checks": [
+    {
+      "Check": "Stable input snapshot exists",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Python script exists",
+      "Status": "PASS"
+    },
+    {
+      "Check": "R script exists",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Five selected geographies",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Expected geography names",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Reference year = 2023",
+      "Status": "PASS"
+    },
+    {
+      "Check": "NAICS2017 = 00",
+      "Status": "PASS"
+    },
+    {
+      "Check": "LFO = 001",
+      "Status": "PASS"
+    },
+    {
+      "Check": "EMPSZES = 001",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Expected EMP values",
+      "Status": "PASS"
+    },
+    {
+      "Check": "No missing EMP",
+      "Status": "PASS"
+    },
+    {
+      "Check": "No negative EMP",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Expected descending ordering",
+      "Status": "PASS"
+    },
+    {
+      "Check": "EMP_N retained",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Python execution",
+      "Status": "PASS"
+    },
+    {
+      "Check": "R execution",
+      "Status": "PASS"
+    },
+    {
+      "Check": "Python PNG created",
+      "Status": "PASS"
+    },
+    {
+      "Check": "R PNG created",
+      "Status": "PASS"
+    }
+  ],
+  "note": "EMP_N retained as CBP disclosure/noise-related metadata; not interpreted as an ACS margin of error."
+}

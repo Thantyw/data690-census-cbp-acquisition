@@ -1,0 +1,19 @@
+Check,Status
+Stable input snapshot exists,PASS
+Python script exists,PASS
+R script exists,PASS
+Five selected geographies,PASS
+Expected geography names,PASS
+Reference year = 2023,PASS
+NAICS2017 = 00,PASS
+LFO = 001,PASS
+EMPSZES = 001,PASS
+Expected EMP values,PASS
+No missing EMP,PASS
+No negative EMP,PASS
+Expected descending ordering,PASS
+EMP_N retained,PASS
+Python execution,PASS
+R execution,PASS
+Python PNG created,PASS
+R PNG created,PASS
