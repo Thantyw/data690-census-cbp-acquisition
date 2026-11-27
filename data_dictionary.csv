@@ -1,0 +1,19 @@
+field,description,role
+NAME,Geography name,identifier
+state,Two-digit state FIPS code,identifier
+NAICS2017,2017 NAICS industry code,scope
+NAICS2017_LABEL,Industry label,scope
+LFO,Legal form of organization code,scope
+EMPSZES,Employment size class code,scope
+ESTAB,Number of establishments,measure
+EMP,Number of employees,measure
+PAYQTR1,First-quarter payroll,measure
+PAYANN,Annual payroll,measure
+EMP_N,Employment noise/disclosure range code,quality metadata
+PAYQTR1_N,First-quarter payroll noise/disclosure range code,quality metadata
+PAYANN_N,Annual payroll noise/disclosure range code,quality metadata
+reference_year,CBP reference year,provenance
+source_dataset,Source Census dataset,provenance
+source_endpoint,Census API endpoint used for acquisition,provenance
+retrieved_utc,UTC acquisition timestamp,provenance
+validation_status,Acquisition validation result,quality metadata

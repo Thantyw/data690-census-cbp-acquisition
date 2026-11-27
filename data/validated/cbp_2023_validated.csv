@@ -1,0 +1,6 @@
+NAME,NAICS2017_LABEL,ESTAB,EMP,PAYQTR1,PAYANN,EMP_N,PAYQTR1_N,PAYANN_N,NAICS2017,LFO,EMPSZES,state,YEAR,source_dataset,source_endpoint,naics_variable,naics_code_requested
+Delaware,Total for all sectors,29706,457635,8996650,33198008,0,0,0,00,001,001,10,2023,County Business Patterns (CBP),/data/2023/cbp,NAICS2017,00
+District of Columbia,Total for all sectors,23801,558653,14932630,56777982,0,0,0,00,001,001,11,2023,County Business Patterns (CBP),/data/2023/cbp,NAICS2017,00
+Maryland,Total for all sectors,142967,2468367,42620743,168088859,0,0,0,00,001,001,24,2023,County Business Patterns (CBP),/data/2023/cbp,NAICS2017,00
+Pennsylvania,Total for all sectors,307065,5713846,94309868,363913898,0,0,0,00,001,001,42,2023,County Business Patterns (CBP),/data/2023/cbp,NAICS2017,00
+Virginia,Total for all sectors,210842,3581650,63794646,250962996,0,0,0,00,001,001,51,2023,County Business Patterns (CBP),/data/2023/cbp,NAICS2017,00

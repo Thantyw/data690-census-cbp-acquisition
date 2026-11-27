@@ -1,0 +1,4 @@
+Visualization,Candidate measure,Strength,Key caution,Development recommendation
+Bar Chart,2023 employment,Direct state comparison; non-monetary count,Document CBP scope and disclosure/noise treatment,Strong candidate
+Slope Diagram,2018 vs 2023 annual payroll,Clear before/after comparison,Nominal dollars; inflation affects interpretation,Use with explicit nominal-dollar note or inflation adjustment
+Table,"ESTAB, EMP, PAYQTR1, PAYANN",Supports exact-value lookup and reproducibility,State units and disclosure/noise context,Strong candidate

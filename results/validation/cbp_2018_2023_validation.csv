@@ -1,0 +1,10 @@
+Check,Status,Detail
+Source candidate validation,PASS,2018=PASS; 2023=PASS
+Geography level,PASS,2018=state; 2023=state
+Geography coverage,PASS,"2018 states=['10', '11', '24', '42', '51']; 2023 states=['10', '11', '24', '42', '51']"
+Core analytical measures,PASS,2018 missing=None; 2023 missing=None
+Requested NAICS code,PASS,2018=00; 2023=00
+NAICS vintage,PASS,"2018=NAICS2017; 2023=NAICS2017. If vintages differ, confirm the selected aggregate industry concept remains comparable."
+Legal-form slice,PASS,2018=001; 2023=001
+Employment-size slice,PASS,2018=001; 2023=001
+Noise/disclosure fields,PASS,"2018=['EMP_N', 'PAYQTR1_N', 'PAYANN_N']; 2023=['EMP_N', 'PAYQTR1_N', 'PAYANN_N']"

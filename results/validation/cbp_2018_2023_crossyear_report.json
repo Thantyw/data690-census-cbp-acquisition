@@ -1,0 +1,80 @@
+{
+  "project": "DATA 690 Census Bureau Capstone",
+  "dataset": "County Business Patterns (CBP)",
+  "comparison_years": [
+    2018,
+    2023
+  ],
+  "crossyear_structural_status": "PASS",
+  "source_validation": {
+    "2018": "PASS",
+    "2023": "PASS"
+  },
+  "naics": {
+    "2018_variable": "NAICS2017",
+    "2023_variable": "NAICS2017",
+    "2018_code": "00",
+    "2023_code": "00"
+  },
+  "geography_fips": [
+    "10",
+    "11",
+    "24",
+    "42",
+    "51"
+  ],
+  "core_measures": [
+    "ESTAB",
+    "EMP",
+    "PAYQTR1",
+    "PAYANN"
+  ],
+  "important_interpretation_note": "Payroll comparisons are nominal unless an explicit inflation adjustment is performed.",
+  "validation_checks": [
+    {
+      "Check": "Source candidate validation",
+      "Status": "PASS",
+      "Detail": "2018=PASS; 2023=PASS"
+    },
+    {
+      "Check": "Geography level",
+      "Status": "PASS",
+      "Detail": "2018=state; 2023=state"
+    },
+    {
+      "Check": "Geography coverage",
+      "Status": "PASS",
+      "Detail": "2018 states=['10', '11', '24', '42', '51']; 2023 states=['10', '11', '24', '42', '51']"
+    },
+    {
+      "Check": "Core analytical measures",
+      "Status": "PASS",
+      "Detail": "2018 missing=None; 2023 missing=None"
+    },
+    {
+      "Check": "Requested NAICS code",
+      "Status": "PASS",
+      "Detail": "2018=00; 2023=00"
+    },
+    {
+      "Check": "NAICS vintage",
+      "Status": "PASS",
+      "Detail": "2018=NAICS2017; 2023=NAICS2017. If vintages differ, confirm the selected aggregate industry concept remains comparable."
+    },
+    {
+      "Check": "Legal-form slice",
+      "Status": "PASS",
+      "Detail": "2018=001; 2023=001"
+    },
+    {
+      "Check": "Employment-size slice",
+      "Status": "PASS",
+      "Detail": "2018=001; 2023=001"
+    },
+    {
+      "Check": "Noise/disclosure fields",
+      "Status": "PASS",
+      "Detail": "2018=['EMP_N', 'PAYQTR1_N', 'PAYANN_N']; 2023=['EMP_N', 'PAYQTR1_N', 'PAYANN_N']"
+    }
+  ]
+}

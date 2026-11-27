@@ -1,0 +1,87 @@
+{
+  "project": "DATA 690 Census Bureau Capstone",
+  "dataset": "County Business Patterns (CBP)",
+  "reference_year": 2018,
+  "api_endpoint": "https://api.census.gov/data/2018/cbp",
+  "retrieved_utc": "2026-11-24T04:55:53.152070+00:00",
+  "geography": "state",
+  "selected_state_fips": {
+    "10": "Delaware",
+    "11": "District of Columbia",
+    "24": "Maryland",
+    "42": "Pennsylvania",
+    "51": "Virginia"
+  },
+  "naics_variable": "NAICS2017",
+  "naics_code": "00",
+  "legal_form_code": "001",
+  "employment_size_code": "001",
+  "requested_variables": [
+    "NAME",
+    "NAICS2017_LABEL",
+    "ESTAB",
+    "EMP",
+    "PAYQTR1",
+    "PAYANN",
+    "EMP_N",
+    "PAYQTR1_N",
+    "PAYANN_N"
+  ],
+  "candidate_rows": 5,
+  "candidate_columns": 18,
+  "validation_status": "PASS",
+  "validation_results": [
+    {
+      "Check": "Required columns",
+      "Status": "PASS",
+      "Detail": "All expected columns present."
+    },
+    {
+      "Check": "Selected geography coverage",
+      "Status": "PASS",
+      "Detail": "Expected 5 states; found 5. Missing=None; unexpected=None."
+    },
+    {
+      "Check": "Unique state rows",
+      "Status": "PASS",
+      "Detail": "One row per selected state."
+    },
+    {
+      "Check": "State name/FIPS agreement",
+      "Status": "PASS",
+      "Detail": "Names agree with selected FIPS codes."
+    },
+    {
+      "Check": "Numeric conversion",
+      "Status": "PASS",
+      "Detail": "Requested analytical measures converted to numeric."
+    },
+    {
+      "Check": "Nonnegative measures",
+      "Status": "PASS",
+      "Detail": "No negative core measures detected."
+    },
+    {
+      "Check": "Missing core measures",
+      "Status": "PASS",
+      "Detail": "No missing core measures."
+    },
+    {
+      "Check": "Payroll relationship",
+      "Status": "PASS",
+      "Detail": "First-quarter payroll does not exceed annual payroll."
+    },
+    {
+      "Check": "Noise/disclosure fields retained",
+      "Status": "PASS",
+      "Detail": "Retained 3 noise-range fields with 15 populated values."
+    }
+  ],
+  "api_key_stored": false,
+  "promotion_status": "candidate_only",
+  "notes": [
+    "Candidate data must be reviewed before promotion to a stable snapshot.",
+    "Missing or flagged values must not be silently converted to zero.",
+    "Noise/disclosure information is retained for review."
+  ]
+}
